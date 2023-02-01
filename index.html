@@ -3,144 +3,106 @@
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: 'Ubuntu', sans-serif;
-        text-align: center;
-      }
-      .tree {
-        display: inline-block;
-        text-align: left;
-      }
-      .tree ul {
-        padding-top: 20px;
-        position: relative;
-      }
-      .tree ul ul {
-        padding-left: 40px;
-      }
-      .tree li {
-        display: inline-block;
-        text-align: center;
-        list-style-type: none;
-        position: relative;
-        padding: 20px 5px 0 5px;
-        transition: all 0.5s;
-      }
-      .tree li::before, .tree li::after {
-        content: '';
-        position: absolute; top: 0; right: 50%;
-        border-top: 1px solid #ccc;
-        width: 50%; height: 20px;
-      }
-      .tree li::after {
-        right: auto; left: 50%;
-        border-left: 1px solid #ccc;
-      }
-      .tree li:only-child::before, .tree li:only-child::after {
-        display: none;
-      }
-      .tree li:only-child {
-        padding-top: 0;
-      }
-      .tree li:first-child::before, .tree li:last-child::after {
-        border: 0 none;
-      }
-      .tree li:last-child::before {
-        border-right: 1px solid #ccc;
-        border-radius: 0 5px 0 0;
-        -webkit-border-radius: 0 5px 0 0;
-        -moz-border-radius: 0 5px 0 0;
-      }
-      .tree li:first-child::after {
-        border-radius: 5px 0 0 0;
-        -webkit-border-radius: 5px 0 0 0;
-        -moz-border-radius: 5px 0 0 0;
-      }
-      .tree ul ul ul li {
-        padding-left: 55px;
-      }
-      .indicator {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        background-color: #ccc;
-        margin-right: 5px;
-      }
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tree-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.root > span {
+  display: block;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.tree li span {
+  display: block;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
     </style>
   </head>
   <body>
-    <div class="tree">
+    <div class="tree-container">
+  <ul class="tree">
+    <li class="root">
+      <span>Programming Languages</span>
       <ul>
         <li>
-          Assembly
-          <ul>
-            <li>
-              Fortran
-            </li>
-            <li>
-              COBOL
-            </li>
-            <li>
-              LISP
-            </li>
-          </ul>
+          <span>Assembly Language</span>
         </li>
         <li>
-          C
-          <ul>
-            <li>
-              C++
-            </li>
-            <li>
-              Objective-C
-            </li>
-            <li>
-              C#
-            </li>
-          </ul>
+          <span>Fortran</span>
         </li>
         <li>
-          Pascal
+          <span>COBOL</span>
         </li>
         <li>
-          Basic
-          <ul>
-            <li>
-              Visual Basic
-            </li>
-            <li>
-              VB.NET
-            </li>
-          </ul>
+          <span>LISP</span>
         </li>
         <li>
-          Prolog
+          <span>ALGOL</span>
         </li>
         <li>
-          Ada
+          <span>BASIC</span>
         </li>
         <li>
-          Python
+          <span>C</span>
         </li>
         <li>
-          Perl
+          <span>C++</span>
         </li>
         <li>
-          Ruby
+          <span>Java</span>
         </li>
         <li>
-          PHP
+          <span>Python</span>
         </li>
         <li>
-          Swift
+          <span>Ruby</span>
         </li>
         <li>
-          JavaScript
+          <span>JavaScript</span>
+        </li>
+        <li>
+          <span>PHP</span>
+        </li>
+        <li>
+          <span>Swift</span>
+        </li>
+        <li>
+          <span>Go</span>
         </li>
       </ul>
-    </div>
+    </li>
+  </ul>
+</div>
+
   </body>
 </html>
