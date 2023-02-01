@@ -1,48 +1,114 @@
 <html>
 <head>
 <style>
-#wolf-container {
-  width: 100px;
-  height: 100px;
-  background-color: black;
+#wolf {
+  width: 200px;
+  height: 150px;
+  position: relative;
 }
 
-.pixel {
-  width: 10px;
-  height: 10px;
-  float: left;
+.head {
+  width: 120px;
+  height: 100px;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  border-radius: 60px 60px 0 60px;
+  background-color: #664b3d;
+  transform: rotate(30deg);
 }
+
+.ear {
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  border-radius: 20px 20px 0 20px;
+  background-color: #664b3d;
+  transform: rotate(60deg);
+}
+
+.nose {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  border-radius: 10px;
+  background-color: #b66a52;
+}
+
+.mouth {
+  width: 60px;
+  height: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  border-radius: 10px;
+  background-color: #b66a52;
+}
+
+.eye {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.body {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #664b3d;
+}
+
+.leg {
+  width: 20px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  background-color: #664b3d;
+}
+
+.tail {
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  bottom: 30px;
+  right: -15px;
+  border-radius: 0 15px 15px 0;
+  background-color: #664b3d;
+  transform: rotate(-60deg);
+}
+
 </style>
 </head>
-<div id="wolf-container"></div>
+<div id="wolf">
+  <div class="head">
+    <div class="ear"></div>
+    <div class="ear"></div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
+    <div class="eye"></div>
+    <div class="eye"></div>
+  </div>
+  <div class="body">
+    <div class="leg"></div>
+    <div class="leg"></div>
+    <div class="leg"></div>
+    <div class="leg"></div>
+  </div>
+  <div class="tail"></div>
+</div>
 
-<script>
-$(document).ready(function() {
-  var wolfPixels = [
-    {x: 0, y: 0, color: "white"},
-    {x: 1, y: 0, color: "white"},
-    {x: 2, y: 0, color: "white"},
-    {x: 0, y: 1, color: "white"},
-    {x: 2, y: 1, color: "white"},
-    {x: 0, y: 2, color: "white"},
-    {x: 1, y: 2, color: "white"},
-    {x: 2, y: 2, color: "white"}
-  ];
 
-  var container = $("#wolf-container");
-
-  wolfPixels.forEach(function(pixel) {
-    var pixelElement = $("<div></div>").addClass("pixel");
-    pixelElement.css({
-      "background-color": pixel.color,
-      "left": (pixel.x * 10) + "px",
-      "top": (pixel.y * 10) + "px"
-    });
-    container.append(pixelElement);
-  });
-});
-
-</script>
 </body>
 </html>
 
