@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+#cyber-wolf {
+  width: 100px;
+  height: 100px;
+  background-image: url('./cyber-wolf.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+</style>
+</head>
+<body>
+<div id="cyber-wolf"></div>
+<script>
+$(document).ready(function() {
+  var cyberWolf = $('#cyber-wolf');
+
+  function animateCyberWolf() {
+    cyberWolf.animate({
+      left: '+=100px',
+      top: '+=100px'
+    }, 2000, animateCyberWolf);
+  }
+
+  animateCyberWolf();
+});
+
+</script>
+</body>
+</html>
+
