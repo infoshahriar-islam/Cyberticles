@@ -1,65 +1,94 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <style>
-    body {
-      background-color: black;
-    }
-    .particle {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background-color: teal;
-      animation: particle-motion 5s ease-in-out infinite;
-    }
-    @keyframes particle-motion {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+  <head>
+    <style>
+      /* Set the background color to black */
+      body {
+        background-color: black;
+        height: 100%;
+        margin: 0;
       }
-      100% {
-        transform: translate(50%, 50%) rotate(360deg);
+
+      /* Define the particle style */
+      .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: teal;
+        border-radius: 50%;
       }
-    }
-    .wave {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 50%, teal, transparent);
-      animation: wave-motion 1s ease-in-out infinite;
-    }
-    @keyframes wave-motion {
-      0% {
-        transform: scale(0.1);
-        opacity: 1;
+    </style>
+  </head>
+  <body>
+    <!-- Create a container to hold the particles -->
+    <div id="particleContainer"></div>
+
+    <script>
+      // Get the particle container
+      const particleContainer = document.getElementById("particleContainer");
+
+      // Create an array to store the particles
+      const particles = [];
+
+      // Create a function to generate particles
+      function generateParticles() {
+        // Create a new particle and add it to the array
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particleContainer.appendChild(particle);
+        particles.push(particle);
+
+        // Set the initial position and velocity of the particle
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        particle.style.top = `${Math.random() * window.innerHeight}px`;
+        particle.velocity = {
+          x: (Math.random() - 0.5) * 2,
+          y: (Math.random() - 0.5) * 2
+        };
       }
-      70% {
-        transform: scale(1);
-        opacity: 0.5;
+
+      // Generate some initial particles
+      for (let i = 0; i < 100; i++) {
+        generateParticles();
       }
-      100% {
-        transform: scale(0.1);
-        opacity: 0;
+
+      // Create a function to animate the particles
+      function animateParticles() {
+        // Update the position of each particle
+        for (const particle of particles) {
+          particle.style.left = `${
+            parseInt(particle.style.left) + particle.velocity.x
+          }px`;
+          particle.style.top = `${
+            parseInt(particle.style.top) + particle.velocity.y
+          }px`;
+
+          // Bounce the particle off the edges of the screen
+          if (
+            parseInt(particle.style.left) <= 0 ||
+            parseInt(particle.style.left) >= window.innerWidth - 5
+          ) {
+            particle.velocity.x = -particle.velocity.x;
+          }
+          if (
+            parseInt(particle.style.top) <= 0 ||
+            parseInt(particle.style.top) >= window.innerHeight - 5
+          ) {
+            particle.velocity.y = -particle.velocity.y;
+          }
+        }
+
+        // Request another animation frame
+        requestAnimationFrame(animateParticles);
       }
-    }
-  </style>
-</head>
-<body>
-  <script>
-    for (let i = 0; i < 50; i++) {
-      let particle = document.createElement("div");
-      particle.classList.add("particle");
-      particle.style.top = Math.random() * 100 + "%";
-      particle.style.left = Math.random() * 100 + "%";
-      document.body.appendChild(particle);
-    }
-    document.body.addEventListener("click", function (event) {
-      let wave = document.createElement("div");
-      wave.classList.add("wave");
-      wave.style.top = event.clientY + "px";
-      wave.style.left = event.clientX + "px";
-      document.body.appendChild(wave);
-    });
-  </script>
-</body>
+
+      // Start animating the particles
+      animateParticles();
+
+      // Listen for touch events
+      window.addEventListener("touchstart", event => {
+        // Generate a new particle at the touch location
+        generateParticles();
+      });
+    </script>
+  </body>
 </html>
