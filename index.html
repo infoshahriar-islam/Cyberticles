@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.tree-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tree {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.root > span {
-  display: block;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
   text-align: center;
-  font-size: 20px;
 }
 
-.tree li span {
-  display: block;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
+#tree-container {
+  display: inline-block;
+  text-align: left;
+}
+
+#tree ul {
+  padding-top: 20px;
+  position: relative;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+#tree li {
+  float: left;
   text-align: center;
-  font-size: 18px;
-  margin-bottom: 10px;
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+#tree ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 1px solid #ccc;
+  bottom: 20px;
+}
+
+#tree li::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  border-radius: 5px;
+  left: 1px solid #ccc;
+  bottom: 20px;
+}
+
+#tree li a {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #666;
+  font-family: arial, verdana, tahoma;
+  font-size: 11px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+#tree li a:hover,
+#tree li a:hover+ul li a {
+  background: #c8e4f8;
+  color: #000;
+  border: 1px solid #94a0b4;
+}
+
+#tree li a:hover+ul ul::after {
+  border-left-color: #94a0b4;
+}
+
+#tree li a:hover+ul li::before {
+  border-left-color: #94a0b4;
 }
 
     </style>
   </head>
   <body>
-    <div class="tree-container">
-  <ul class="tree">
-    <li class="root">
-      <span>Programming Languages</span>
+    <div id="tree-container">
+  <ul id="tree">
+    <li>
+      C Programming Language
       <ul>
+        <li>Plankalkul (1945)</li>
         <li>
-          <span>Assembly Language</span>
+          B (1969)
+          <ul>
+            <li>BCPL (1967)</li>
+          </ul>
         </li>
         <li>
-          <span>Fortran</span>
+          C (1972)
+          <ul>
+            <li>K&R C (1978)</li>
+            <li>ANSI C (1989)</li>
+            <li>C89/C90</li>
+            <li>C99</li>
+            <li>C11</li>
+            <li>C18</li>
+          </ul>
         </li>
         <li>
-          <span>COBOL</span>
+          C++ (1983)
+          <ul>
+            <li>C++98</li>
+            <li>C++03</li>
+            <li>C++11</li>
+            <li>C++14</li>
+            <li>C++17</li>
+            <li>C++20</li>
+          </ul>
         </li>
         <li>
-          <span>LISP</span>
-        </li>
-        <li>
-          <span>ALGOL</span>
-        </li>
-        <li>
-          <span>BASIC</span>
-        </li>
-        <li>
-          <span>C</span>
-        </li>
-        <li>
-          <span>C++</span>
-        </li>
-        <li>
-          <span>Java</span>
-        </li>
-        <li>
-          <span>Python</span>
-        </li>
-        <li>
-          <span>Ruby</span>
-        </li>
-        <li>
-          <span>JavaScript</span>
-        </li>
-        <li>
-          <span>PHP</span>
-        </li>
-        <li>
-          <span>Swift</span>
-        </li>
-        <li>
-          <span>Go</span>
+          Other Compilers & Sub-Languages
+          <ul>
+            <li>Objective-C (1983)</li>
+            <li>Swift (2014)</li>
+            <li>D (2001)</li>
+            <li>Rust (2010)</li>
+            <li>Go (2009)</li>
+          </ul>
         </li>
       </ul>
     </li>
   </ul>
 </div>
+<script>
+var treeList = document.querySelectorAll("#tree li");
+
+for (var i = 0; i < treeList.length; i++) {
+  treeList[i].addEventListener("click", function(event) {
+    var childrenContainer = this.querySelector("ul");
+    if (childrenContainer) {
+      childrenContainer.classList.toggle("active");
+    }
+  });
+}
+
+</script>
 
   </body>
 </html>
