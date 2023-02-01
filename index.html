@@ -18,16 +18,28 @@
 
 <script>
 $(document).ready(function() {
-  var cyberWolf = $('#cyber-wolf');
+  var wolfPixels = [
+    {x: 0, y: 0, color: "white"},
+    {x: 1, y: 0, color: "white"},
+    {x: 2, y: 0, color: "white"},
+    {x: 0, y: 1, color: "white"},
+    {x: 2, y: 1, color: "white"},
+    {x: 0, y: 2, color: "white"},
+    {x: 1, y: 2, color: "white"},
+    {x: 2, y: 2, color: "white"}
+  ];
 
-  function animateCyberWolf() {
-    cyberWolf.animate({
-      left: '+=100px',
-      top: '+=100px'
-    }, 2000, animateCyberWolf);
-  }
+  var container = $("#wolf-container");
 
-  animateCyberWolf();
+  wolfPixels.forEach(function(pixel) {
+    var pixelElement = $("<div></div>").addClass("pixel");
+    pixelElement.css({
+      "background-color": pixel.color,
+      "left": (pixel.x * 10) + "px",
+      "top": (pixel.y * 10) + "px"
+    });
+    container.append(pixelElement);
+  });
 });
 
 </script>
