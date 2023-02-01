@@ -1,67 +1,48 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-      #tree-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: 'Ubuntu', sans-serif;
-      }
-      .node {
+      .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 30px;
       }
-      .node-name {
-        font-weight: bold;
+      .branch {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
       }
-      .line {
-        width: 2px;
-        height: 30px;
-        background-color: #333;
+      .language {
+        background-color: lightgray;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        margin-right: 20px;
       }
     </style>
   </head>
   <body>
-    <div id="tree-container">
-      <div class="node">
-        <div class="node-name">Plankalkul</div>
+    <div class="container">
+      <div class="branch">
+        <div class="language">Plankalkul</div>
+        <div class="language">ALGOL</div>
       </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">FORTRAN</div>
+      <div class="branch">
+        <div class="language">BASIC</div>
+        <div class="language">FORTRAN</div>
+        <div class="language">COBOL</div>
       </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">COBOL</div>
+      <div class="branch">
+        <div class="language">C</div>
+        <div class="language">C++</div>
+        <div class="language">Java</div>
       </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">LISP</div>
-      </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">BASIC</div>
-      </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">C</div>
-      </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">Java</div>
-      </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">Python</div>
-      </div>
-      <div class="line"></div>
-      <div class="node">
-        <div class="node-name">Javascript</div>
+      <div class="branch">
+        <div class="language">PHP</div>
       </div>
     </div>
   </body>
