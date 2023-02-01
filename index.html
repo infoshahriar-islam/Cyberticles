@@ -1,154 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-
-body {
-  font-family: 'Ubuntu', sans-serif;
-  text-align: center;
-}
-
-#tree-container {
-  background-color: black;
-}
-
-#tree ul {
-  list-style: none;
-  position: relative;
-  padding: 20px 0 0 0;
-  margin: 0 0 20px 0;
-}
-
-#tree li {
-  display: inline-block;
-  white-space: nowrap;
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-#tree li::before, #tree li::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 50%;
-  border-top: 1px solid white;
-  width: 50%;
-  height: 20px;
-}
-
-#tree li::after {
-  right: auto;
-  left: 50%;
-  border-left: 1px solid white;
-}
-
-#tree li:only-child::after, #tree li:only-child::before {
-  display: none;
-}
-
-#tree li:only-child {
-  padding-top: 0;
-}
-
-#tree li:first-child::before, #tree li:last-child::after {
-  border: 0 none;
-}
-
-#tree li:last-child::before {
-  border-right: 1px solid white;
-  border-radius: 0 5px 0 0;
-  -webkit-border-radius: 0 5px 0 0;
-  -moz-border-radius: 0 5px 0 0;
-}
-
-#tree li:first-child::after {
-  border-radius: 5px 0 0 0;
-  -webkit-border-radius: 5px 0 0 0;
-  -moz-border-radius: 5px 0 0 0;
-}
-
-#tree ul ul::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  border-left: 1px solid white;
-  width: 0;
-  height: 20px;
-}
-
-#tree li a {
-  color: teal;
-  text-decoration: none;
-}
-
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <style>
+      #tree-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      .node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px;
+      }
+      .node-name {
+        font-weight: bold;
+      }
+      .line {
+        width: 2px;
+        height: 30px;
+        background-color: #333;
+      }
     </style>
   </head>
   <body>
     <div id="tree-container">
-  <ul id="tree">
-    <li>
-      C Programming Language
-      <ul>
-        <li>Plankalkul (1945)</li>
-        <li>
-          B (1969)
-          <ul>
-            <li>BCPL (1967)</li>
-          </ul>
-        </li>
-        <li>
-          C (1972)
-          <ul>
-            <li>K&R C (1978)</li>
-            <li>ANSI C (1989)</li>
-            <li>C89/C90</li>
-            <li>C99</li>
-            <li>C11</li>
-            <li>C18</li>
-          </ul>
-        </li>
-        <li>
-          C++ (1983)
-          <ul>
-            <li>C++98</li>
-            <li>C++03</li>
-            <li>C++11</li>
-            <li>C++14</li>
-            <li>C++17</li>
-            <li>C++20</li>
-          </ul>
-        </li>
-        <li>
-          Other Compilers & Sub-Languages
-          <ul>
-            <li>Objective-C (1983)</li>
-            <li>Swift (2014)</li>
-            <li>D (2001)</li>
-            <li>Rust (2010)</li>
-            <li>Go (2009)</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-<script>
-var treeList = document.querySelectorAll("#tree li");
-
-for (var i = 0; i < treeList.length; i++) {
-  treeList[i].addEventListener("click", function(event) {
-    var childrenContainer = this.querySelector("ul");
-    if (childrenContainer) {
-      childrenContainer.classList.toggle("active");
-    }
-  });
-}
-
-</script>
-
+      <div class="node">
+        <div class="node-name">Plankalkul</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">FORTRAN</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">COBOL</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">LISP</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">BASIC</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">C</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">Java</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">Python</div>
+      </div>
+      <div class="line"></div>
+      <div class="node">
+        <div class="node-name">Javascript</div>
+      </div>
+    </div>
   </body>
 </html>
